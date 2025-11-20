@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,9 +6,8 @@ import { ArrowLeft, CarFront, Heart, Layout } from "lucide-react";
 import { Button } from "./ui/button";
 import { checkUser } from "@/lib/checkUser";
 
-const Header =async ({ isAdminPage = false }) => {
+const Header = async ({ isAdminPage = false }) => {
   const user = await checkUser();
-
   const isAdmin = user?.role === "ADMIN";
 
 
@@ -19,10 +16,10 @@ const Header =async ({ isAdminPage = false }) => {
       <nav className="mx-auto px-4 py-4 flex items-center justify-between">
         <Link href={isAdminPage ? "/admin" : "/"} className="flex">
           <Image
-            src={"/RKmotor.png"}
+            src={"/logo2.png"}
             alt="RK Motor"
             width={200}
-            height={80}
+            height={60}
             className="h-10 w-auto object-contain"
             priority
           />
@@ -41,7 +38,7 @@ const Header =async ({ isAdminPage = false }) => {
               {/* Saved cars */}
               <Link href="/saved-cars">
                 <Button>
-                  <CarFront size={18} /> <span className="hidden md:inline">Saved Cars</span>
+                  <Heart size={18} /> <span className="hidden md:inline">Saved Cars</span>
                 </Button>
               </Link>
 
