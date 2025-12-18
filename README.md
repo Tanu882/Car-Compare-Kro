@@ -1,38 +1,132 @@
-Tanu 
+<!-- ===================== HERO SECTION ===================== -->
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">🚗 My Car Guide</h1>
 
-## Getting Started
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Orbitron&size=22&pause=1000&color=00F7FF&center=true&vCenter=true&width=750&lines=Smart+Car+Discovery+Platform;Advanced+Filtering+%26+Test+Drive+Scheduling;Full+Stack+MERN+%2B+Next.js+Application" />
+</p>
 
-First, run the development server:
+<p align="center">
+  <img src="https://img.shields.io/badge/Frontend-React.js-61DAFB?style=for-the-badge&logo=react"/>
+  <img src="https://img.shields.io/badge/Backend-Next.js%20%7C%20Express.js-black?style=for-the-badge&logo=next.js"/>
+  <img src="https://img.shields.io/badge/Database-Supabase-3FCF8E?style=for-the-badge&logo=supabase"/>
+  <img src="https://img.shields.io/badge/ORM-Prisma-2D3748?style=for-the-badge&logo=prisma"/>
+  <img src="https://img.shields.io/badge/Auth-Clerk-6C47FF?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Security-Arcjet-red?style=for-the-badge"/>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📌 Project Overview
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**My Car Guide** is a full-stack web application designed to simplify the car selection process by providing **advanced filtering**, **detailed car listings**, and **online test-drive scheduling** on a single platform.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project focuses on **usability, performance, and real-world problem solving**, making it suitable for modern automobile service platforms.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔍 Smart Car Discovery
+- Filter cars by **fuel type**, **body type**, **model**, and more  
+- Quick and accurate search results  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 📅 Test Drive Scheduling
+- Users can book test drives by selecting **date and time**
+- Reduces manual coordination with dealers  
 
-## Deploy on Vercel
+### 🔐 Authentication & Security
+- Secure authentication using **Clerk**
+- API protection and rate limiting using **Arcjet**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ⚙️ Backend & Data Management
+- REST APIs built using **Next.js + Express.js**
+- **Prisma ORM** for type-safe database access
+- **Supabase** as a scalable cloud database
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 🤖 AI Integration
+- **Gemini API** used for intelligent API-based features and enhancements
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js  
+- Modern UI principles  
+- Responsive design  
+
+### Backend
+- Next.js  
+- Node.js  
+- Express.js  
+
+### Database & ORM
+- Supabase  
+- Prisma ORM  
+
+### Authentication & Security
+- Clerk Authentication  
+- Arcjet Security  
+
+### APIs
+- Gemini API  
+
+
+---
+
+## 📈 Impact on Users
+
+- ⏱️ Saves time by centralizing car search and booking  
+- 🎯 Improves decision-making with advanced filters  
+- 📱 Provides a smooth and user-friendly experience  
+- 🔒 Ensures secure and reliable access  
+
+---
+
+## 🎯 What I Learned
+
+- Building a **production-style full-stack application**
+- Integrating modern authentication and security tools
+- Working with **Prisma ORM & Supabase**
+- Designing scalable backend architecture
+- Creating recruiter-friendly GitHub projects
+
+---
+
+## 🔮 Future Scope
+
+- AI-based car recommendations  
+- Cloud deployment and scaling  
+- Mobile app version  
+- Integration with real dealership systems  
+
+---
+
+## 📸 Screenshots
+
+> _(Add screenshots of your application here)_
+
+- Home Page  
+- Car Filters  
+- Test Drive Booking  
+- Car Details Page  
+
+---
+
+## 🌍 Live Demo & Repository
+
+- 🔗 **Live Project:** _(Add link)_  
+- 📦 **GitHub Repository:** _(Add link)_  
+
+---
+
+## 🤝 Connect With Me
+
+If you like this project or have suggestions, feel free to connect.  
+Feedback and collaboration are always welcome 🚀  
+
+<p align="center">⭐ If you find this project helpful, don’t forget to star the repository!</p>
+
+
+
+
