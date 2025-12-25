@@ -2,7 +2,7 @@ import React from 'react'
 import CarsList from './_components/car-list';
 
 export const metadata = {
-  title: "Cars | RK Motors Admin",
+  title: "Cars | My Car Guide Admin",
   description: "Manage cars in your marketplace",
 
 }

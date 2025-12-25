@@ -1,7 +1,7 @@
 import { SettingsForm } from "./_components/settings-form";
 
 export const metadata = {
-  title: "Settings | RK Motors Admin",
+  title: "Settings | My Car Guide Admin",
   description: "Manage dealership working hours and admin users",
 };
 

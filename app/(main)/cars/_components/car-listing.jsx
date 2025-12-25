@@ -168,7 +168,7 @@ export function CarListings() {
     if (pageNumber - lastPageNumber > 1) {
       // Add ellipsis
       paginationItems.push(
-        <PaginationItem key={ellipsis-`${pageNumber}`}>
+        <PaginationItem key={`ellipsis-${pageNumber}`}>
           <PaginationEllipsis />
         </PaginationItem>
       );

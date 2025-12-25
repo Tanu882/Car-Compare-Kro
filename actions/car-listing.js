@@ -5,6 +5,8 @@ import { serializeCarData } from "@/lib/helper";
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
+import { Trykker } from "next/font/google";
+import { success } from "zod";
 
 export async function getCarFilters() {
 
@@ -67,7 +69,11 @@ export async function getCarFilters() {
     };
 
   } catch (error) {
-     throw new Error("Error fetching car filters:" + error.message);
+    // Return structured error object instead of throwing
+    return {
+      success: false,
+      error: `Error fetching car filters: ${error?.message || String(error)}`,
+    };
   }
 }
 
@@ -185,8 +191,12 @@ export async function getCars({
 
 
     } catch (error) {
-       throw new Error("Error fetching cars:" + error.message);
-    }
+    // Return structured error instead of throwing
+    return {
+      success: false,
+      error: `Error fetching cars: ${error?.message || String(error)}`,
+    };
+  }
 }
 
 
@@ -196,13 +206,17 @@ export async function toggleSavedCar(carId) {
   try {
     
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) {
+      return { success: false, error: "Unauthorized" };
+    }
 
     const user = await db.user.findUnique({
       where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+     if (!user) {
+      return { success: false, error: "User not found" };
+    }
 
     // Check if car exists
     const car = await db.car.findUnique({
@@ -262,7 +276,10 @@ export async function toggleSavedCar(carId) {
     };
 
   } catch (error) {
-     throw new Error("Error toggling saved car:" + error.message);
+    return {
+      success: false,
+      error: `Error toggling saved car: ${error?.message || String(error)}`,
+    };
   }
 }
 
@@ -314,7 +331,127 @@ export async function getSavedCars() {
     console.error("Error fetching saved cars:", error);
     return {
       success: false,
-      error: error.message,
+      error: error?.message || String(error),
+    };
+  }
+}
+
+const _carCache = new Map(); // key: carId, value: { ts, result }
+const CAR_CACHE_TTL_MS = 5000; // 5 seconds
+
+export async function getCarById(carId) {
+  try {
+    // Simple short-lived cache to avoid duplicate DB hit for the same id
+    const now = Date.now();
+    const cached = _carCache.get(carId);
+    if (cached && now - cached.ts < CAR_CACHE_TTL_MS) {
+      return cached.result;
+    }
+
+    const { userId } = await auth();
+    let dbUser = null;
+
+    if (userId) {
+      dbUser = await db.user.findUnique({
+        where: { clerkUserId: userId },
+      });
+    }
+
+    const car = await db.car.findUnique({
+      where: { id: carId },
+    });
+
+
+    if (!car) {
+      const notFoundResult = { success: false, error: "Car not found" };
+      // cache negative responses briefly too (optional)
+      _carCache.set(carId, { ts: now, result: notFoundResult });
+      return notFoundResult;
+    }
+
+    let isWishlisted = false;
+    if(dbUser) {
+      const savedCar = await db.userSavedCar.findUnique({
+        where: {
+          userId_carId: {
+            userId: dbUser.id,
+            carId,
+          },
+        },
+      });
+
+      isWishlisted =!! savedCar;
+    }
+
+    // Existing test drive
+    let existingTestDrive = null;
+
+    if (dbUser) {
+      existingTestDrive = await db.testDriveBooking.findFirst({
+        where: {
+          carId,
+          userId: dbUser.id,
+          status: {
+            in: ["PENDING", "CONFIRMED", "COMPLETED"],
+          },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
+    }
+
+
+    let userTestDrive = null;
+
+    if(existingTestDrive) {
+      userTestDrive = {
+        id: existingTestDrive.id,
+        status: existingTestDrive.status,
+        bookingDate: existingTestDrive.bookingDate.toISOString(),
+      };
+    }
+
+
+    const dealership = await db.dealershipInfo.findFirst({
+      include: {
+        workingHours: true,
+      },
+    });
+
+    const successResult = {
+      success: true,
+      data: {
+        ...serializeCarData(car, isWishlisted),
+        testDriveInfo: {
+          userTestDrive,
+          dealership: dealership
+            ? {
+              ...dealership,
+              createdAt: dealership.createdAt.toISOString(),
+              updatedAt: dealership.updatedAt.toISOString(),
+              workingHours: dealership.workingHours.map((hour) => ({
+                ...hour,
+                createdAt: hour.createdAt.toISOString(),
+                updatedAt: hour.updatedAt.toISOString(),
+              })),
+
+            }
+            : null,
+        },
+      },
+    };
+
+     // store in cache
+    _carCache.set(carId, { ts: now, result: successResult });
+
+    return successResult;
+    
+  } catch (error) {
+    // Return structured error instead of throwing
+    return {
+      success: false,
+      error: `Error fetching car details: ${error?.message || String(error)}`,
     };
   }
 }

@@ -2,7 +2,7 @@ import { AddCarForm } from "../_components/add-car-form";
 
 
 export const metadata = {
-  title: "Add New Car | RK Motors Admin",
+  title: "Add New Car | My Car Guide Admin",
   description: "Add a new car to the marketplace",
 };
 

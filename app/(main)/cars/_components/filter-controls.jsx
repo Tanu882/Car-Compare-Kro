@@ -13,8 +13,9 @@ const CarFilterControls = ({
   onClearFilter,
  }) => {
 
+  //Extracting Current Filter Values
   const { make, bodyType, fuelType, transmission, priceRange } = currentFilters;
-
+   //Creating Filter Sections Dynamically
    const filterSections = [
     {
       id: "make",
@@ -49,6 +50,7 @@ const CarFilterControls = ({
     },
   ];
 
+  //Main Return Container
 
   return (
      <div className="space-y-6 overflow-y-auto max-h-[70vh] pr-2 custom-scrollbar">
@@ -56,6 +58,7 @@ const CarFilterControls = ({
       <div className="space-y-4 px-2">
         <h3 className="font-medium">Price Range</h3>
         <div className="px-2">
+          {/* //Price Range Filter Slider */}
           <Slider
             min={filters.priceRange.min}
             max={filters.priceRange.max}
@@ -67,6 +70,7 @@ const CarFilterControls = ({
         <div className="flex items-center justify-between">
            {/* ✅ Use formatCurrency helper */}
           <div className="font-medium text-sm">
+            {/* Showing Price in Currency Format */}
             {formatCurrency(priceRange[0])}
           </div>
           <div className="font-medium text-sm">
@@ -76,10 +80,12 @@ const CarFilterControls = ({
       </div>
 
        {/* Filter Categories */}
+       {/* Loop Through All Filters */}
       {filterSections.map((section) => (
         <div key={section.id} className="space-y-3 px-2 border-b pb-3 last:border-none">
           <h4 className="text-sm font-medium flex justify-between items-center">
             <span>{section.title}</span>
+            {/* Clear Button Logic (X) */}
             {section.currentValue && (
               <button
                 className="text-xs text-gray-600 flex items-cente hover:text-red-500"

@@ -23,7 +23,7 @@ const config: runtime.GetPrismaClientConfig = {
       "value": "prisma-client"
     },
     "output": {
-      "value": "D:\\RK-Motors\\rk-motors\\lib\\generated",
+      "value": "D:\\Car-Compare-Kro\\lib\\generated",
       "fromEnvVar": null
     },
     "config": {
@@ -37,7 +37,7 @@ const config: runtime.GetPrismaClientConfig = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\RK-Motors\\rk-motors\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\Car-Compare-Kro\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativePath": "../../prisma",

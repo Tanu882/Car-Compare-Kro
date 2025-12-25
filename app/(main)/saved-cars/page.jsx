@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { SavedCarsList } from "./_components/saved-cars-list";
 
 export const metadata = {
-  title: "Saved Cars | RK Motors",
+  title: "Saved Cars | My Car Guide",
   description: "View your saved cars and favorites",
 };
 
