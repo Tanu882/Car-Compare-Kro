@@ -115,8 +115,8 @@ The project focuses on **usability, performance, and real-world problem solving*
 
 ## 🌍 Live Demo & Repository
 
-- 🔗 **Live Project:** _(Add link)_  
-- 📦 **GitHub Repository:** _(Add link)_  
+-[ 🔗 **Live Project:** _(Add link)_  ](https://rk-motors-blond.vercel.app/)
+  
 
 ---
 
