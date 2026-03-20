@@ -26,6 +26,16 @@ Built using **Next.js, MongoDB, Prisma, and Gemini API**, and enhanced with inte
 ----
 
 
+## 🎯 Project Overview
+
+This project delivers a modern car marketplace experience focused on **AI-driven vehicle identification, smart search, and seamless user interaction**. Users can upload images to detect cars, explore listings, interact via chat and calling, and manage bookings, while admins can control listings and test drives through a dedicated dashboard.
+
+It integrates multiple systems including **AI-powered search, Clerk authentication, Arcjet security, Cloudinary storage, and real-time communication**, all combined with a responsive and intuitive UI for a smooth user experience.
+
+
+----
+
+
 ## 🌐 Live Demo & Repository
 
 - 🔗 **Live Application:**  
@@ -107,15 +117,6 @@ Built using **Next.js, MongoDB, Prisma, and Gemini API**, and enhanced with inte
   
 </table>
 
-
-----
-
-
-## 🎯 Project Overview
-
-This project delivers a modern car marketplace experience focused on **AI-driven vehicle identification, smart search, and seamless user interaction**. Users can upload images to detect cars, explore listings, interact via chat and calling, and manage bookings, while admins can control listings and test drives through a dedicated dashboard.
-
-It integrates multiple systems including **AI-powered search, Clerk authentication, Arcjet security, Cloudinary storage, and real-time communication**, all combined with a responsive and intuitive UI for a smooth user experience.
 
 
 ---
